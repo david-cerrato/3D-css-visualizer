@@ -47,7 +47,7 @@ body{
   height: 100vh;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 150ms ease-out;
+  transition: transform 250ms ease-out;
 }
 
 .viewport[data-isometric="true"] {
@@ -56,6 +56,27 @@ body{
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.grid{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    height: 20000px;
+    aspect-ratio: 1/1;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    background-size: 50px 50px;
+    background-image:
+    linear-gradient(to right, #2e2e2e 1px, transparent 1px),
+    linear-gradient(to bottom, #2e2e2e 1px, transparent 1px);
+  transition: transform 250ms ease-out;
+
+}
+
+.grid[data-isometric="true"]{
+  transform: translate(-50%, -50%) rotateX(90deg);
 }
 
 .cube{

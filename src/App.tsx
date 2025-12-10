@@ -26,8 +26,10 @@ function App() {
           <div className="axis y-axis"></div>
           <div className="axis x-axis"></div>
           <div className="axis z-axis"></div>
+          <div className="grid" data-isometric={isIsometric}></div>
         </div>
       </div>
+
       <div className="controls">
         <div className="range-input">
           <label htmlFor="translateX">Translate X</label>
