@@ -1,24 +1,19 @@
-interface CubeProps {
-    translateX: number
-    translateY: number
-    translateZ: number
-    rotateX: number
-    rotateY: number
-    rotateZ: number
-}
+import { useElement } from "../../stores/elementStore";
 
-export function Cube({translateX, translateY, translateZ, rotateX, rotateY, rotateZ}: CubeProps) {
+export function Cube() {
+    const object = useElement((state) => state.object)
+    
     return (
         <>
             <div 
                 className="cube" 
                 style={{
-                    "--translateX": `${translateX}px`,
-                    "--translateY": `${translateY}px`,
-                    "--translateZ": `${translateZ}px`,
-                    "--rotateX": `${rotateX}deg`,
-                    "--rotateY": `${rotateY}deg`,
-                    "--rotateZ": `${rotateZ}deg`
+                    "--translateX": `${object.translateX}px`,
+                    "--translateY": `${object.translateY}px`,
+                    "--translateZ": `${object.translateZ}px`,
+                    "--rotateX": `${object.rotateX}deg`,
+                    "--rotateY": `${object.rotateY}deg`,
+                    "--rotateZ": `${object.rotateZ}deg`
                     } as React.CSSProperties}
                 >
                 <div className="side side-A"></div>
