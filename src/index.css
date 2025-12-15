@@ -40,6 +40,11 @@ body{
 .z-axis{
   /* border: 1px dashed rgb(0, 255, 60); */
   transform: translate(-50%,-50%) rotateX(90deg);
+  opacity: 0;
+
+  &[data-isometric="true"]{
+    opacity: 1;
+  }
 }
 
 .viewport{
@@ -47,11 +52,13 @@ body{
   height: 100vh;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 250ms ease-out;
+  /* transition: transform 250ms ease-out; */
+  perspective: 500px;
 }
 
 .viewport[data-isometric="true"] {
     transform: rotateX(-45deg) rotateY(-45deg);
+    perspective: none;
   }
 
 .overflow-hidden{
@@ -71,8 +78,7 @@ body{
     background-image:
     linear-gradient(to right, #2e2e2e 1px, transparent 1px),
     linear-gradient(to bottom, #2e2e2e 1px, transparent 1px);
-  transition: transform 250ms ease-out;
-
+  /* transition: transform 250ms ease-out; */
 }
 
 .grid[data-isometric="true"]{
