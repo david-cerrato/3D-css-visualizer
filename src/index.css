@@ -27,24 +27,23 @@ body{
 }
 
 .y-axis{
-  /* height: 100%; */
-  /* border: 1px dashed rgb(99, 8, 255); */
   transform: translate(-50%,-50%) ;
+  border-color: rgb(255, 91, 91);
 }
 
 .x-axis{
-  /* border: 1px dashed rgb(161, 7, 7); */
   transform: translate(-50%,-50%) rotateZ(90deg);
+  border-color: rgb(116, 91, 255);
 }
 
 .z-axis{
-  /* border: 1px dashed rgb(0, 255, 60); */
   transform: translate(-50%,-50%) rotateX(90deg);
   opacity: 0;
 
   &[data-isometric="true"]{
     opacity: 1;
   }
+  border-color: rgb(91, 255, 118);
 }
 
 .viewport{
@@ -52,7 +51,7 @@ body{
   height: 100vh;
   position: relative;
   transform-style: preserve-3d;
-  /* transition: transform 250ms ease-out; */
+  transition: transform 250ms ease-out;
   perspective: 500px;
 }
 
