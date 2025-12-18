@@ -1,4 +1,5 @@
 import { useElement } from "../../stores/elementStore";
+import style from './cube.module.css'
 
 export function Cube() {
     const object = useElement((state) => state.object)
@@ -6,7 +7,7 @@ export function Cube() {
     return (
         <>
             <div 
-                className="cube" 
+                className={style.cube} 
                 style={{
                     "--translateX": `${object.translateX}px`,
                     "--translateY": `${object.translateY}px`,
@@ -16,12 +17,12 @@ export function Cube() {
                     "--rotateZ": `${object.rotateZ}deg`
                     } as React.CSSProperties}
                 >
-                <div className="side side-A"></div>
-                <div className="side side-B"></div>
-                <div className="side side-C"></div>
-                <div className="side side-D"></div>
-                <div className="side side-E"></div>
-                <div className="side side-F"></div>
+                <div className={`${style.side} ${style.sideA}`}></div>
+                <div className={`${style.side} ${style.sideB}`}></div>
+                <div className={`${style.side} ${style.sideC}`}></div>
+                <div className={`${style.side} ${style.sideD}`}></div>
+                <div className={`${style.side} ${style.sideE}`}></div>
+                <div className={`${style.side} ${style.sideF}`}></div>
             </div>
         </>
     )

@@ -1,0 +1,43 @@
+.cube{
+  transform-style: preserve-3d;
+  position: absolute;
+  transform-origin: center center;
+  left: calc(50vw - var(--radius));
+  top:  calc(50vh - var(--radius));
+    width: calc(var(--radius)*2);
+  height: calc(var(--radius)*2);
+  transform: translateX(var(--translateX)) translateY(var(--translateY)) translateZ(var(--translateZ)) rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
+}
+
+.side{
+  position: absolute;
+  width: calc(var(--radius)*2);
+  height: calc(var(--radius)*2);
+  background-color: antiquewhite;
+  transform-origin: center;
+  border: 1px solid red;
+}
+
+.sideA{
+  transform: translateX(var(--radius)) rotateY(90deg);
+}
+
+.sideB{
+  transform: translateZ(var(--radius) ) ;
+}
+
+.sideC{
+  transform: translateX(calc(-1 * var(--radius))) rotateY(90deg);
+}
+
+.sideD{
+  transform: translateZ(calc(-1 * var(--radius)));
+}
+
+.sideE{
+  transform: translateY(var(--radius)) rotateX(90deg);
+}
+
+.sideF{
+  transform: translateY(calc(-1 * var(--radius))) rotateX(90deg);
+}
