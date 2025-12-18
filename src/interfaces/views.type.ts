@@ -1,0 +1,1 @@
+export type View = 'front' | 'zenithal' | 'side' | 'isometric'
