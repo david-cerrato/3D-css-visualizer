@@ -1,0 +1,10 @@
+.sortableItem {
+    display: flex;
+    gap: 8px;
+
+    & > button{
+        padding: 8px;
+        border-radius: 2px;
+        height: fit-content;
+    }
+}
