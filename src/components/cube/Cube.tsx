@@ -2,19 +2,14 @@ import { useElement } from "../../stores/elementStore";
 import style from './cube.module.css'
 
 export function Cube() {
-    const object = useElement((state) => state.object)
+    const properties = useElement((state) => state.properties)
     
     return (
         <>
             <div 
                 className={style.cube} 
                 style={{
-                    "--translateX": `${object.translateX}px`,
-                    "--translateY": `${object.translateY}px`,
-                    "--translateZ": `${object.translateZ}px`,
-                    "--rotateX": `${object.rotateX}deg`,
-                    "--rotateY": `${object.rotateY}deg`,
-                    "--rotateZ": `${object.rotateZ}deg`
+                    "--transform": properties.map(property => `${property.id}(${property.value}${property.type === 'number' ? 'px' : 'deg'})`).join(' '),
                     } as React.CSSProperties}
                 >
                 <div className={`${style.side} ${style.sideA}`}></div>
