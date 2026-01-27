@@ -1,0 +1,16 @@
+.scene-node {
+    transform-style: preserve-3d;
+    position: absolute;
+    transform-origin: center center;
+    left: calc(50vw - var(--radius));
+    top:  calc(50vh - var(--radius));
+    width: calc(var(--radius)*2);
+    height: calc(var(--radius)*2);
+    transform: var(--transform);
+    position: absolute;
+
+    width: calc(var(--radius)*2);
+    height: calc(var(--radius)*2);
+    background-color: antiquewhite;
+    border: 1px solid red;
+}
