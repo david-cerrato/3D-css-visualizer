@@ -1,4 +1,4 @@
-import { useElement } from "../../stores/elementStore";
+import { useElement } from "../../stores/sceneStore";
 import style from './cube.module.css'
 
 export function Cube() {
