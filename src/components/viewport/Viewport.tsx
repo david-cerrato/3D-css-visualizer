@@ -1,9 +1,12 @@
 import { useState, type ReactNode } from "react"
 import type { View } from "../../interfaces/views.type"
 import style from './viewport.module.css'
+import { useScene } from "../../stores/sceneStore"
+import { getNewNode } from "../../stores/sceneNode.interface"
 
 export function Viewport ({children}: {children: ReactNode}){
     const [isIsometric, setIsIsometric] = useState<View>('isometric')
+    const { addNewNode } = useScene()
     
 
     return (
@@ -23,6 +26,7 @@ export function Viewport ({children}: {children: ReactNode}){
                 <button id="change-view" onClick={() => setIsIsometric('front')}>Front View</button>
                 <button id="change-view" onClick={() => setIsIsometric('zenithal')}>Zenithal View</button>
                 <button id="change-view" onClick={() => setIsIsometric('side')}>Side View</button>
+                <button id="change-view" onClick={() => addNewNode(getNewNode())}>Add new node</button>
             </div>
         </>
     )
