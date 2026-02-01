@@ -28,6 +28,7 @@ body{
   border: 1px solid #606060;
   background-color: #1e1e1e;
   width: 20rem;
+  z-index: 1;
 }
 
 .range-input{
