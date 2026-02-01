@@ -3,6 +3,7 @@ import { getInitialScene, type Scene, type SceneActions } from "./scene.interfac
 import { type ObjectProperty } from "./sceneNode.interface";
 import { immer } from "zustand/middleware/immer";
 
+
 export const useScene = create<Scene & SceneActions>()(immer((set) => ({
     ...getInitialScene(),
     addNewNode: (newNode) => set((state) => {
@@ -12,4 +13,3 @@ export const useScene = create<Scene & SceneActions>()(immer((set) => ({
     setSelectedNode: (id: string) => set({selectedNode: id}),
     updateNodeProperties: (properties: ObjectProperty[]) => set((state) => {console.log('estado actualizado'); state.nodes[state.selectedNode!].properties = properties})
 })))
-
