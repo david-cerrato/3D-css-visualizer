@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ObjectProperty } from "../../stores/sceneNode.interface";
 
 export function Property({item, updateValue}: {item: ObjectProperty, updateValue: (id: string, value: number) => void}){
     const [value, setValue] = useState<number>(item.value)
+
+    useEffect(() => {
+        setValue(item.value)
+    }, [item.value])
     
     // TODO: USAR DEBOUNCE EN LUGAR DE ONBLUR, ASI NO HAY QUE CLICAR FUERA PARA ACTUALIZARLO Y TAMPOCO ACTUALIAMOS MAS DE LO NECESARIO
 
