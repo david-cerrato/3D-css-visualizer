@@ -1,8 +1,8 @@
-import { useElement } from "../../stores/sceneStore";
+import { useScene } from "../../stores/sceneStore";
 import style from './cube.module.css'
 
 export function Cube() {
-    const properties = useElement((state) => state.properties)
+    const properties = useScene((state) => state.properties)
     
     return (
         <>
