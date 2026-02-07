@@ -7,7 +7,7 @@ import { Property } from "./Property"
 
 export function Controls() {
     const {selectedNode, updateNodeProperties} = useScene((state) => state)
-    const properties = useScene(state => state.nodes[selectedNode!].properties)
+    const properties = selectedNode!.properties
     const [activeId, setActiveId] = useState(null);
     const sensors = useSensors(
       useSensor(PointerSensor),

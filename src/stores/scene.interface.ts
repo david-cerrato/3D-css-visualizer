@@ -3,13 +3,14 @@ import { getNewNode, type ObjectProperty, type SceneNode } from "./sceneNode.int
 export interface Scene {
   nodes: {[key: string]: SceneNode},
   rootNodes: string[],
-  selectedNode: string | null
+  selectedNode: SceneNode | null
 }
 
 export interface SceneActions {
   addNewNode: (newNode: SceneNode) => void,
-  setSelectedNode: (id: string) => void,
+  setSelectedNode: (newNode: SceneNode) => void,
   updateNodeProperties: (updatedProperties: ObjectProperty[]) => void
+  deleteNode: (deletedNodeId: string) => void
 }
 
 

@@ -19,8 +19,23 @@
   padding: 8px;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > .icons{
+    opacity: 0;
+  }
 }
 
 .list-item:hover {
   background-color: #414141;
+
+  & > .icons{
+    opacity: 1;
+  }
+}
+
+.list-item-selected {
+  background-color: #747474;
 }
