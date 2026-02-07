@@ -7,16 +7,22 @@ export function ListItem({id}: {id: string}) {
     const node  = nodes[id]
 
     function onDeleteIconClicked(event: any){
-        event.stopImmediatePropagation()
-        setSelectedNode(node)
+        deleteNode(id)
+        event.stopPropagation();
     }
+
+    function onSelectItemClicked(event: any){
+        setSelectedNode(node)
+        event.stopPropagation();
+    }
+
 
     return (
         <>
-            <div className={`list-item ${selectedNode?.id === id && 'list-item-selected'}`} onClick={onDeleteIconClicked}>
+            <div className={`list-item ${selectedNode?.id === id && 'list-item-selected'}`} onClick={onSelectItemClicked}>
                 <p>{node.name}</p>
                 <div className="icons">
-                    <Trash2 size={16} onClick={() => deleteNode(id)}/>
+                    <Trash2 size={16} onClick={onDeleteIconClicked}/>
                 </div>
             </div>
         </>
