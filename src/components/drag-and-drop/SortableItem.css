@@ -1,10 +1,21 @@
 .sortableItem {
     display: flex;
-    gap: 8px;
+    align-items: end;
+    gap: 4px;
 
     & > button{
         padding: 8px;
         border-radius: 2px;
         height: fit-content;
+    }
+
+    & > span {
+        margin-bottom: 7px;
+        color: #606060;
+
+         & :hover {
+            color: white;
+            cursor: pointer;
+         }
     }
 }

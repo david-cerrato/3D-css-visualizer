@@ -1,0 +1,13 @@
+.controls{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 12px;
+  top: 12px;
+  padding: 12px 12px 6px 6px;
+  border-radius: 4px;
+  border: 1px solid #606060;
+  background-color: #1e1e1e;
+  width: 20rem;
+  z-index: 1;
+}

@@ -1,6 +1,7 @@
 import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 import './SortableItem.css'
+import { GripVertical } from 'lucide-react';
 
 export function SortableItem({children, id}: {children: React.ReactNode, id: string}) {
   const {
@@ -18,7 +19,9 @@ export function SortableItem({children, id}: {children: React.ReactNode, id: str
   
   return (
     <div className='sortableItem' ref={setNodeRef} style={style} {...attributes} >
-      <button {...listeners}><span>G</span></button>
+      <span {...listeners}>
+        <GripVertical />
+      </span>
       {children}
     </div>
   );

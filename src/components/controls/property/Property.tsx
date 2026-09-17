@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import type { ObjectProperty } from "../../stores/sceneNode.interface";
+import type { ObjectProperty } from "../../../stores/sceneNode.interface";
+import { Slider } from "../slider/Slider";
+import styles from './property.module.css'
 
 export function Property({item, updateValue}: {item: ObjectProperty, updateValue: (id: string, value: number) => void}){
     const [value, setValue] = useState<number>(item.value)
@@ -13,16 +15,16 @@ export function Property({item, updateValue}: {item: ObjectProperty, updateValue
 
     if(item.type === 'number')
     return (
-            <div className="range-input">
+            <div className={styles.input_container}>
                 <label htmlFor={item.id}>{item.id}</label>
                 <input type="number" name="" id={item.id} value={value} onChange={(e: any) => debounceUpdate(e.target.value)}/>
             </div>
     )
 
     return (
-            <div className="range-input">
+            <div className={styles.input_container}>
                 <label htmlFor={item.id}>{item.id}</label>
-                <input type="range" name="" id={item.id} value={value} min="0" max="360" onChange={(e: any) => debounceUpdate(e.target.value)}/>
+                <Slider onChange={debounceUpdate} min={0} max={360}/>
             </div>
     )
 
@@ -33,5 +35,5 @@ export function Property({item, updateValue}: {item: ObjectProperty, updateValue
         if(timer) clearTimeout(timer)
         timer = setTimeout(() => {
         }, 250)
-}
+    }
 }

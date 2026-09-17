@@ -3,7 +3,8 @@ import { useScene } from "../../stores/sceneStore"
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import { SortableItem } from "../drag-and-drop/SortableItem"
 import { useCallback, useState } from "react"
-import { Property } from "./Property"
+import { Property } from "./property/Property"
+import styles from './controls.module.css'
 
 export function Controls() {
     const {selectedNode, updateNodeProperties} = useScene((state) => state)
@@ -52,7 +53,7 @@ export function Controls() {
 
     return (
         <>
-          <div className="controls">
+          <div className={styles.controls}>
             <DndContext
               sensors={sensors}
               collisionDetection={closestCorners}
