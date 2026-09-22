@@ -2,11 +2,15 @@
   transform-style: preserve-3d;
   position: absolute;
   transform-origin: center center;
-  left: calc(50vw - var(--radius));
-  top:  calc(50vh - var(--radius));
+  left: 50%;
+  top:  50%;
     width: calc(var(--radius)*2);
   height: calc(var(--radius)*2);
-  transform: var(--transform);
+  transform: translate(-50%, 0%);
+  &:hover > .side {
+    background-color: #303030;
+    cursor: pointer;
+  }
 }
 
 .side{
@@ -15,7 +19,10 @@
   height: calc(var(--radius)*2);
   background-color: antiquewhite;
   transform-origin: center;
-  border: 1px solid red;
+  border: 1px solid #606060;
+  background-color: #1f1f1f;
+
+  
 }
 
 .sideA{

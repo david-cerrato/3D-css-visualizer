@@ -1,28 +1,21 @@
-import { useState, type ReactNode } from "react"
-import type { View } from "../../interfaces/views.type"
+import { type ReactNode } from "react"
 import style from './viewport.module.css'
-import { useScene } from "../../stores/sceneStore"
+import { viewStore } from "../../stores/viewStore"
 
-export function Viewport ({children}: {children: ReactNode}){
-    const [isIsometric, setIsIsometric] = useState<View>('isometric')    
+export function Viewport ({children}: {children: ReactNode}){  
+    const { view} = viewStore();
 
     return (
         <>
             <div className={style.overflowHidden}>
-            <div className={style.viewport} data-isometric={isIsometric}>
-                {children}
-                <div className={`${style.axis} ${style.axisY}`} data-isometric={isIsometric}></div>
-                <div className={`${style.axis} ${style.axisX}`} data-isometric={isIsometric}></div>
-                <div className={`${style.axis} ${style.axisZ}`} data-isometric={isIsometric}></div>
-                <div className={style.grid}  data-isometric={isIsometric}></div>
-            </div>
-            <div className={style.backgroundGrid}  data-isometric={isIsometric}></div>
-            </div>
-                <div className="views-container">
-                <button id="change-view" onClick={() => setIsIsometric('isometric')}>Isometric view</button>
-                <button id="change-view" onClick={() => setIsIsometric('front')}>Front View</button>
-                <button id="change-view" onClick={() => setIsIsometric('zenithal')}>Zenithal View</button>
-                <button id="change-view" onClick={() => setIsIsometric('side')}>Side View</button>
+                <div className={style.viewport} data-isometric={view}>
+                    {children}
+                    <div className={`${style.axis} ${style.axisY}`} data-isometric={view}></div>
+                    <div className={`${style.axis} ${style.axisX}`} data-isometric={view}></div>
+                    <div className={`${style.axis} ${style.axisZ}`} data-isometric={view}></div>
+                    <div className={style.grid}  data-isometric={view}></div>
+                </div>
+                <div className={style.backgroundGrid}  data-isometric={view}></div>
             </div>
         </>
     )

@@ -1,16 +1,17 @@
-import { useScene } from "../../stores/sceneStore";
+import { viewStore } from '../../stores/viewStore'
 import style from './cube.module.css'
 
 export function Cube() {
-    const properties = useScene((state) => state.properties)
+    const {selectView} = viewStore()
     
     return (
         <>
             <div 
                 className={style.cube} 
                 style={{
-                    "--transform": properties.map(property => `${property.id}(${property.value}${property.type === 'number' ? 'px' : 'deg'})`).join(' '),
+                    "--radius": "15px"
                     } as React.CSSProperties}
+                    onClick={()=> selectView('isometric')}
                 >
                 <div className={`${style.side} ${style.sideA}`}></div>
                 <div className={`${style.side} ${style.sideB}`}></div>

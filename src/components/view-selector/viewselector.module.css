@@ -1,0 +1,117 @@
+.axis {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.axisY{
+    transform: translate(-50%, -75%) rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+    
+    & > .hand, .arm{
+        background-color: rgb(255, 91, 91);
+    }
+}
+
+.axisY[data-isometric="zenithal"] .hand{
+    transform: rotateX(90deg);
+    pointer-events: none;
+}
+
+.axisY[data-isometric="side"] .hand, .axisY[data-isometric="side"] .arm{
+    transform: rotateY(90deg)
+}
+
+.axisX{
+    transform: translate(55%,-30%) rotateZ(90deg) rotateY(0deg) rotateX(0deg);
+    & > .hand, .arm{
+        background-color:  rgb(116, 91, 255);
+    }
+}
+
+.axisX[data-isometric="side"] .hand{
+    transform: rotateX(90deg) rotateZ(90deg);
+    pointer-events: none;
+
+}
+
+.axisX[data-isometric="zenithal"] .hand, .axisX[data-isometric="zenithal"] .arm{
+    transform: rotateY(90deg)
+}
+
+.axisZ{
+    transform: translateX(-50%) translateZ(30px) translateY(-15px) rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+    & > .hand, .arm{
+        background-color: rgb(91, 255, 118);
+    }
+}
+
+.axisZ[data-isometric="front"] .hand{
+    transform: rotateX(90deg) translateY(-6px);
+    pointer-events: none;
+}
+
+.axisZ[data-isometric="side"] .hand, .axisZ[data-isometric="side"] .arm{
+    transform: rotateY(90deg)
+}
+
+.hand{
+    padding: 2px;
+    height: 24px;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 250ms linear;
+
+    & > span {
+        pointer-events: none;
+    }
+}
+
+.arm {
+    width: 5px;
+    height: 48px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    transition: transform 250ms linear;
+    pointer-events: none;
+
+}
+
+.viewSelectorContainer{
+    background-color: #1f1f1f;
+    border: 1px solid #606060;
+    width: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    overflow: hidden;
+}
+
+.threedViewport {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 250ms ease-out;
+    position: relative;
+}
+
+.threedViewport[data-isometric="isometric"] {
+    transform: translateY(-12px) rotateX(-45deg) rotateY(-45deg) rotateZ(0deg);
+}
+
+.threedViewport[data-isometric="zenithal"] {
+    transform: translateY(-12px) rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.threedViewport[data-isometric="side"] {
+    transform: translateY(0px) translateX(12px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+}
