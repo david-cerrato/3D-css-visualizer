@@ -4,6 +4,22 @@ button{
   border-radius: 25px;
 }
 
+.transparent-btn{
+  background: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* justify-content: center; */
+  gap: 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #414141;
+    cursor: pointer;
+  }
+}
+
 .views-container{
   position: absolute;
   bottom: 3%;

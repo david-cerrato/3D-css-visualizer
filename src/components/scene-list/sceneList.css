@@ -2,6 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   left: 12px;
   top: 12px;
   bottom: 12px;
@@ -15,6 +16,15 @@
   overflow-y: auto;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  border-bottom: 1px solid #606060;
+  margin-bottom: 12px;
+}
+
 .list-item {
   padding: 8px;
   border-radius: 4px;
@@ -22,9 +32,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: transparent;
+  color: white;
 
   & > .icons{
     opacity: 0;
+  }
+
+  & > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
   }
 }
 
