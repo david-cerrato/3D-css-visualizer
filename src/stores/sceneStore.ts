@@ -8,7 +8,7 @@ import { addNewNode, deleteNode } from "./scene.actions";
 export const useScene = create<Scene & SceneActions>()(immer((set) => ({
     ...getInitialScene(),
     addNewNode: (newNode) => set((state) => {addNewNode(state, newNode)}),
-    setSelectedNode: (newNode: SceneNode) => set({selectedNode: newNode}),
+    setSelectedNode: (newNode: SceneNode | null) => set({selectedNode: newNode}),
     updateNodeProperties: (properties: ObjectProperty[]) => set((state) => {state.nodes[state.selectedNode!.id].properties = properties}),
     deleteNode: (deletedNodeId: string) => set((state) => {deleteNode(state, deletedNodeId)})
 })))

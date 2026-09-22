@@ -8,7 +8,7 @@ export interface Scene {
 
 export interface SceneActions {
   addNewNode: (newNode: SceneNode) => void,
-  setSelectedNode: (newNode: SceneNode) => void,
+  setSelectedNode: (newNode: SceneNode | null) => void,
   updateNodeProperties: (updatedProperties: ObjectProperty[]) => void
   deleteNode: (deletedNodeId: string) => void
 }
