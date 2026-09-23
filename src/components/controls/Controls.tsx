@@ -2,14 +2,13 @@ import { closestCorners, DndContext, KeyboardSensor, PointerSensor, useSensor, u
 import { useScene } from "../../stores/sceneStore"
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import { SortableItem } from "../drag-and-drop/SortableItem"
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { Property } from "./property/Property"
 import styles from './controls.module.css'
 
 export function Controls() {
     const {selectedNode, updateNodeProperties} = useScene((state) => state)
     const properties = useScene(state => state.nodes[selectedNode!.id].properties)
-    const [activeId, setActiveId] = useState(null);
     const sensors = useSensors(
       useSensor(PointerSensor),
       useSensor(KeyboardSensor, {
@@ -17,16 +16,9 @@ export function Controls() {
       })
   );
 
-  const handleDragStart = useCallback(({ active }: any) => {
-    setActiveId(active.id);
-  }, []);
+  const handleDragStart = useCallback(() => {}, []);
 
   const handleDragEnd = useCallback(({ active, over }: any) => {
-    if (!over || active.id === over.id) {
-      setActiveId(null);
-      return;
-    }
-
     if(active.id !== over.id) {
       const oldIndex = properties.findIndex(property => property.id === active.id);
       const newIndex = properties.findIndex(property => property.id === over.id);
@@ -34,8 +26,6 @@ export function Controls() {
 
       updateNodeProperties(newArray)
     }
-
-    setActiveId(null);
   }, [properties, updateNodeProperties]);
 
   const updateSinglePropertyValue = useCallback(
@@ -64,7 +54,7 @@ export function Controls() {
               items={properties}
                 strategy={verticalListSortingStrategy}
               >
-                {properties.map((property, index) => 
+                {properties.map((property) => 
                   <SortableItem id={property.id} key={property.id}>
                     <Property item={property} updateValue={updateSinglePropertyValue}></Property>
                   </SortableItem>
