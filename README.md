@@ -9,7 +9,7 @@ Use it to experiment with `transform-style: preserve-3d`, see how the **order of
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 ![Zustand](https://img.shields.io/badge/Zustand-5-443E38)
 
-![3D CSS Visualizer: isometric view with three planes, the scene list and the properties panel](assets/screenshot.png)
+![3D CSS Visualizer: isometric view with three planes, the scene list and the properties panel](src/assets/screenshot.png)
 
 ## Features
 
